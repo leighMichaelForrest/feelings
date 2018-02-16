@@ -77,7 +77,6 @@ WSGI_APPLICATION = 'feelings.wsgi.application'
 
 
 
-
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
@@ -120,3 +119,4 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'assets')]
 
 # Authentication
 LOGIN_URL = 'users:login'
+LOGIN_REDIRECT_URL = 'users:dashboard'
