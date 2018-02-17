@@ -1,3 +1,36 @@
+/* Custom navbar styling */
+.navbar.navbar-inverse {
+  font-family: 'Cutive Mono', monospace;
+  font-size: 1.75rem;
+  background-color: #A23E48;
+}
+
+/*A23E48*/
+.nav>li>a:hover {
+  color: #A23E48;
+}
+
+.navbar-inverse a.navbar-brand {
+  font-size: 3.25rem;
+  color: black;
+}
+
+.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
+  color: #6C8EAD;
+}
+
+.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a {
+  font-size: 2.5rem;
+  color: #FFF275;
+}
+
+/* Jumbotron styling */
+.jumbotron .container h1 {
+  text-align: center;
+}
+
 #content {
   margin-top: 50px;
+  font-family: 'Raleway', sans-serif;
+
 }
