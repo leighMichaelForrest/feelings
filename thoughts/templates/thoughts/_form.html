@@ -1,14 +1,15 @@
 {% load bootstrap3 %}
 <h2>How Are You Feeling?</h2>
+{% if form.instance.pk is None %}
 <form action="{% url 'thoughts:create' %}" method="post">
+{% else %}
+<!-- Insert update form tag here -->
+<form action="#" method="post">
+  <h2>Insert Update Form here</h2>
+{% endif %}
   {% csrf_token %}
   <div class="row">
-    <div class="col-sm-4">
-      {% bootstrap_field form.condition layout="horizontal" %}
-    </div>
-    <div class="col-sm-6">
-      {% bootstrap_field form.notes layout="horizontal" %}
-    </div>
+    {% bootstrap_form form %}
     <div class="col-sm-2">
       {% buttons submit="Record" %}{% endbuttons %}
     </div>
