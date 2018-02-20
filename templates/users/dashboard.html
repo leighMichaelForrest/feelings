@@ -1,4 +1,5 @@
 {% extends 'layout.html' %}
+{% load static from staticfiles %}
 {% load thought_tags %}
 
 {% block title %}Dashboard | {{ block.super }}{% endblock %}
@@ -10,15 +11,26 @@
         <div class="row">
           <div class="col-sm-6">
             <h2>Recent Thoughts</h2>
-            <ul>
+            <div class="list-group">
               {% for thought in user.thoughts.all %}
-              <li>{{ thought.get_condition_display }}</li>
-              {% endfor %}
-            </ul>
+                <div class="list-group-item">
+                  <h3 class="list-group-item-heading">{{ thought.get_condition_display}}
+                    <time class="pull-right" datetime="{{ thought.recorded_at }}">{{ thought.recorded_at | date:'SHORT_DATE_FORMAT' }}</time>
+                  </h3>
+                  {% if thought.notes%}
+                    {{ thought.notes | linebreaks }}
+                  {% endif%}
+                </div>
+              {% endfor%}
+            </div>
           </div>
           <div class="col-sm-6">
             {% thought_form %}
           </div>
         </div>
     </div>
+{% endblock %}
+{% block js %}
+  <script src="{% static 'js/stretchy.js' data-filter='#notes' %}" async>
+  </script>
 {% endblock %}
